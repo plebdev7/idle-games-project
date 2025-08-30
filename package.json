@@ -1,0 +1,22 @@
+{
+  "name": "idle-games-project",
+  "version": "1.0.0",
+  "description": "A collection of incremental/idle games built with Vue 3, TypeScript, and modern web technologies",
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'Select a specific game to develop'",
+    "build": "echo 'Build script will be added per game'",
+    "test": "echo 'Tests will be added later'"
+  },
+  "keywords": [
+    "idle-game",
+    "incremental-game",
+    "vue",
+    "typescript",
+    "vite"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
