@@ -1,0 +1,27 @@
+---
+description: Project management slash commands for evidence-based session workflows
+alwaysApply: true
+---
+
+# Slash Commands System
+> Authority: See authority.mdc
+
+**Session-based project management with evidence trails across multiple work sessions.**
+
+## Commands
+- **`/analyze project [context]`** (`/a`) - Analysis & research sessions 【PLAN】
+- **`/design project [context]`** (`/d`) - Design & planning sessions 【PLAN】  
+- **`/implement project [context]`** (`/i`) - Implementation & testing sessions 【PLAN】
+- **`/close`** (`/c`) - Session closure & documentation finalization 【VALIDATE】
+
+## Workflow
+1. Command loads project history from `agent_work/project/`
+2. Creates session doc from `templates/` 【PLAN】
+3. Guided work with evidence collection 【VALIDATE】 
+4. `/close` finalizes docs + creates next-session handoffs 【STOP】
+
+## Templates
+- `/analyze` uses `templates/analysis-session-template.md`
+- `/design` uses `templates/design-session-template.md`
+- `/implement` uses `templates/implementation-session-template.md`
+- Master tracking uses `templates/progress-tracking-template.md`

@@ -1,0 +1,21 @@
+---
+description: Behavioral constraints that override default agent behavior
+alwaysApply: true
+---
+
+# Authority Rule
+
+【PLAN】 **STOP. Before doing ANYTHING: Use `todo_write` tool and present plan for approval.**
+
+**Never implement on first reply. Ever.**
+
+## Required Planning Process:
+1. Use `todo_write` tool with `fetch_rule` calls interspersed throughout todos (mandatory for rule context refresh)
+2. Present implementation plan
+3. Wait for explicit user approval
+4. Only then implement
+
+## Action Tags
+- 【STOP】 【CHOICE】 【VALIDATE】 【PLAN】
+
+**Without `todo_write` during planning that includes `fetch_rule` calls interspersed as todo items, rules lose effectiveness and violations occur.**
