@@ -8,7 +8,7 @@ All rules derive from `authority.mdc` - the single source of behavioral truth.
 ### Structure
 - **One rule per file** - Keep focused and atomic
 - **Start with authority reference** - Always link back to `authority.mdc`
-- **Be brutally concise** - Max 5-7 lines per rule
+- **Stay concise** - Target 20-30 lines with clear sections
 - **Use imperatives** - "Do X" not "You should do X"
 
 ### Naming Convention
@@ -27,10 +27,15 @@ alwaysApply: false  # or true for always-active rules
 # Rule Name
 > Authority: See authority.mdc
 
-[2-3 line rule statement with action tags if needed]
+[Brief rule statement with action tags if needed]
+
+## Core Standards
+- Key guideline 1
+- Key guideline 2
+- Key guideline 3
 
 ## Example
-[Optional: Single example if needed]
+[Concrete example showing the rule in practice]
 ```
 
 ### Best Practices
@@ -41,7 +46,7 @@ alwaysApply: false  # or true for always-active rules
 
 ### Testing Your Rules
 Ask: "Can I apply this immediately without interpretation?"
-If no, make it more specific.
+If no, make it more specific. Rules should be actionable but comprehensive enough to provide clear guidance.
 
 ## Advanced Practices
 

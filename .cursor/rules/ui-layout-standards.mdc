@@ -1,0 +1,38 @@
+---
+description: UI/Layout standards derived from 12 successful implementation sessions
+globs: ["games/*/src/**/*.{vue,ts,css}"]
+alwaysApply: true
+---
+
+# UI Layout Standards
+> Authority: See authority.mdc
+
+【VALIDATE】 Use Tailwind-first approach with minimal custom CSS, apply `!important` modifiers when CSS conflicts occur, implement responsive grid progression, use glass morphism effects, maintain zero-scroll viewport design on mobile.
+
+## Core Standards
+
+### CSS Architecture
+- Use Tailwind utilities first, custom CSS only when necessary
+- When spacing/layout classes don't work: 【STOP】 check for CSS conflicts, then apply `!important` modifiers
+- Avoid CSS variables that duplicate Tailwind functionality
+- Keep custom CSS minimal (animations, unique effects only)
+
+### Responsive Grid Progression
+`grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4` - Progressive 1→2→3→4 columns 【PLAN】
+
+### Glass Morphism Design
+`bg-gradient-to-br from-white/95 to-gray-50/90 backdrop-blur-sm rounded-xl border border-gray-200/60 shadow-lg`
+
+### Component Standards
+- Rounding: `rounded-xl` (primary), `rounded-full` (badges)
+- Animations: `transition-all duration-300 hover:shadow-lg hover:-translate-y-1`
+- Touch targets: Minimum `py-4 px-5` for buttons
+- Zero-scroll mobile: Fit 100vh viewport, use horizontal scrolling for cards
+
+## Example
+```html
+<div class="!p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 !gap-6">
+  <div class="bg-gradient-to-br from-white/95 to-gray-50/90 backdrop-blur-sm rounded-xl border border-gray-200/60 shadow-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+  </div>
+</div>
+```

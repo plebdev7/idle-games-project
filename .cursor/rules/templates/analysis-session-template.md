@@ -4,9 +4,10 @@
 **Date:** {{DATE}}  
 **Context:** {{CONTEXT}}
 
-## Previous Work Review
+## Previous Work Review (REQUIRED - Must explicitly reference previous work)
 - [ ] Loaded previous analysis sessions: {{PREVIOUS_SESSIONS}}
-- [ ] Reviewed existing proposals: {{EXISTING_PROPOSALS}}
+- [ ] Reviewed design and implementation sessions: {{ALL_SESSIONS}}
+- [ ] Identified specific findings to build upon: {{SPECIFIC_REFS}}
 - [ ] Identified knowledge gaps: {{KNOWLEDGE_GAPS}}
 
 ## Session Objectives

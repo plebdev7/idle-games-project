@@ -4,9 +4,10 @@
 **Date:** {{DATE}}  
 **Context:** {{CONTEXT}}
 
-## Design Foundation
+## Design Foundation (REQUIRED - Must explicitly reference previous work)
 - [ ] Loaded design specifications: {{DESIGN_SESSIONS}}
-- [ ] Reviewed implementation plans: {{IMPLEMENTATION_PLANS}}
+- [ ] Referenced specific design decisions being implemented: {{SPECIFIC_DESIGN_REFS}}
+- [ ] Reviewed previous implementation sessions: {{PREVIOUS_IMPLEMENTATIONS}}
 - [ ] Assessed current progress: {{CURRENT_PROGRESS}}
 
 ## Session Objectives

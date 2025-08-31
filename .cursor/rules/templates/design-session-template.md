@@ -4,9 +4,10 @@
 **Date:** {{DATE}}  
 **Context:** {{CONTEXT}}
 
-## Analysis Foundation
+## Analysis Foundation (REQUIRED - Must explicitly reference analysis findings)
 - [ ] Loaded analysis findings: {{ANALYSIS_SESSIONS}}
-- [ ] Reviewed proposals: {{ACCEPTED_PROPOSALS}}  
+- [ ] Referenced specific analysis findings informing design: {{SPECIFIC_ANALYSIS_REFS}}
+- [ ] Reviewed previous design sessions: {{PREVIOUS_DESIGNS}}  
 - [ ] Identified design constraints: {{CONSTRAINTS}}
 
 ## Session Objectives

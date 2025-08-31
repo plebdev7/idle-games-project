@@ -1,0 +1,21 @@
+---
+description: Standardized workflow for project commits and production deployments
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Project Management & Deployment
+> Authority: See authority.mdc
+
+【PLAN】 **All deployments require comprehensive planning with `todo_write` tool first.**
+
+## Deployment Workflow
+1. **Review State** - `git status --porcelain` + examine all modified/untracked files 【VALIDATE】
+2. **Stage & Commit** - Comprehensive commit message documenting all changes and achievements
+3. **Deploy & Monitor** - Push to trigger CI/CD, verify deployment success 【STOP】
+4. **Document** - Update progress tracking with deployment results and live URLs
+
+## Example
+```
+todo_write: Review git → Stage changes → Commit with full context → Push → Monitor CI/CD → Update docs
+```
