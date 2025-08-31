@@ -15,13 +15,93 @@ alwaysApply: true
 - **`/close`** (`/c`) - Session closure & documentation finalization 【VALIDATE】
 
 ## Workflow
-1. Command loads project history from `agent_work/project/`
-2. Creates session doc from `templates/` 【PLAN】
+1. Command loads project history from `agent-work/{project_name}/`
+2. Creates session doc from `.cursor/rules/templates/` 【PLAN】
 3. Guided work with evidence collection 【VALIDATE】 
-4. `/close` finalizes docs + creates next-session handoffs 【STOP】
+4. `/close` finalizes docs + updates progress tracking 【STOP】
+
+## Directory Structure
+```
+agent-work/
+└── {project_name}/          # Project name from user input
+    ├── progress-tracking.md  # Master project tracking (auto-updated by /close)
+    ├── analysis/
+    │   ├── 001-descriptive-name.md
+    │   └── 002-descriptive-name.md
+    ├── design/
+    │   ├── 001-descriptive-name.md
+    │   └── 002-descriptive-name.md
+    └── implementation/
+        ├── 001-descriptive-name.md
+        └── 002-descriptive-name.md
+```
+
+## Template Processing
+### Variable Population Flow
+1. **Auto-Generated Variables**: Agent creates session metadata (ID, date, timestamps)
+2. **User-Provided Variables**: Agent prompts for project context and session objectives  
+3. **History Variables**: Agent loads from existing files in `agent-work/{project_name}/`
+4. **Template Rendering**: All variables populated, session file created
+
+### Session File Management
+- **Numbering**: Find highest number in session type directory, increment by 1
+- **Naming**: `{number}-{descriptive-name}.md` (e.g., `003-performance-optimization.md`)
+- **Creation**: Save populated template to appropriate subdirectory
+
+## Variable Reference
+### Auto-Generated Variables
+- `{{SESSION_ID}}`: Sequential number based on session type (e.g., "analysis-001", "design-002")
+- `{{DATE}}`: Current date in ISO format
+- `{{CREATE_DATE}}`: File creation date (progress tracking only)
+- `{{LAST_UPDATE}}`: File modification date (progress tracking only)
+
+### User-Provided Variables
+- `{{PROJECT_NAME}}`: Project identifier from user input during command invocation
+- `{{CONTEXT}}`: Brief project context provided by user (1-2 sentences)
+- `{{SESSION_OBJECTIVES}}`: Specific goals for this session, prompted by agent
+
+### History-Loaded Variables
+- `{{PREVIOUS_SESSIONS}}`: List of session files from same type directory
+- `{{ANALYSIS_SESSIONS}}`: List from `analysis/` directory for cross-referencing
+- `{{DESIGN_SESSIONS}}`: List from `design/` directory for cross-referencing
+- `{{IMPLEMENTATION_PLANS}}`: Design outputs that inform implementation
+- `{{CURRENT_PROGRESS}}`: Summary from progress-tracking.md
+
+### Dynamic Content Variables
+- `{{RESEARCH_FINDINGS}}`, `{{CODE_ANALYSIS}}`, etc.: Populated during session work
+- All `{{STEP_N}}` variables: Filled in as work progresses
+
+## Agent Implementation Guide
+### Command Execution Steps
+1. **Parse Command**: Extract project name and context from user input
+2. **Setup Directories**: Create `agent-work/{project_name}/` structure if missing
+3. **Load History**: Read existing session files and progress tracking
+4. **Generate Session ID**: Create sequential session identifier based on session type
+5. **Populate Template**: Replace all variables with appropriate values
+6. **Create Session File**: Save to correct subdirectory with incremented number
+7. **Begin Session Work**: Follow template structure and action tags
+
+### Missing Data Handling
+- **Missing history files**: Create empty directory structure, use "No previous sessions" 
+- **Undefined variables**: 【STOP】 Alert user about missing required data, request clarification
+- **Invalid cross-references**: 【STOP】 Alert user about broken references, request correction
+- **Missing progress tracking**: Create new file from template with current session
+
+## Example Workflow
+```
+User: "/analyze idle-game-performance Memory usage during gameplay"
+
+Agent Actions:
+1. Creates: agent-work/idle-game-performance/analysis/001-memory-usage-gameplay.md
+2. Populates {{PROJECT_NAME}} = "idle-game-performance"
+3. Populates {{CONTEXT}} = "Memory usage during gameplay"  
+4. Populates {{SESSION_ID}} = "analysis-001"
+5. Loads {{PREVIOUS_SESSIONS}} = [] (first session)
+6. Begins guided analysis work following template structure
+```
 
 ## Templates
-- `/analyze` uses `templates/analysis-session-template.md`
-- `/design` uses `templates/design-session-template.md`
-- `/implement` uses `templates/implementation-session-template.md`
-- Master tracking uses `templates/progress-tracking-template.md`
+- `/analyze` uses `.cursor/rules/templates/analysis-session-template.md`
+- `/design` uses `.cursor/rules/templates/design-session-template.md`
+- `/implement` uses `.cursor/rules/templates/implementation-session-template.md`
+- Master tracking uses `.cursor/rules/templates/progress-tracking-template.md`
