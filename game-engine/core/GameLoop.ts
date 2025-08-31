@@ -6,7 +6,7 @@ export class GameLoop {
   private isRunning = false
   private lastUpdateTime = 0
   private uiLoopId?: number
-  private gameLogicIntervalId?: number
+  private gameLogicIntervalId?: ReturnType<typeof setInterval>
 
   private readonly UI_TARGET_FPS = 60
   private readonly GAME_LOGIC_INTERVAL = 1000 // 1 second

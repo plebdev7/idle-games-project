@@ -202,7 +202,7 @@ export class StorageUtils {
   }
 
   private static decompress(str: string): string {
-    return str.replace(/(.)(\d+)/g, (match, char, count) => {
+    return str.replace(/(.)(\d+)/g, (_match, char, count) => {
       return char.repeat(parseInt(count))
     })
   }

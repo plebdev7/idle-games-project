@@ -23,7 +23,7 @@ export class SaveManager {
   private readonly AUTO_SAVE_INTERVAL = 60000 // 60 seconds
   private readonly CURRENT_VERSION = '1.0.0'
   
-  private autoSaveTimer?: number
+  private autoSaveTimer?: ReturnType<typeof setInterval>
   private isAutoSaveEnabled = false
   private saveOptions: SaveOptions = {
     autoSave: true,
