@@ -12,7 +12,7 @@ alwaysApply: true
 - **`/analyze project [context]`** (`/a`) - Analysis & research sessions 【PLAN】
 - **`/design project [context]`** (`/d`) - Design & planning sessions 【PLAN】  
 - **`/implement project [context]`** (`/i`) - Implementation & testing sessions 【PLAN】
-- **`/close`** (`/c`) - Session closure & documentation finalization 【VALIDATE】
+- **`/close`** (`/c`) - Session closure, results verification, & documentation finalization 【VALIDATE】
 
 ## Workflow
 1. Command loads project history from `agent-work/{project_name}/`
