@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "time-server": {
+      "command": "C:\\Users\\dbene\\anaconda3\\python.exe",
+      "args": [".cursor/mcp/time/server.py"],
+      "env": {}
+    }
+  }
+}
+

@@ -10,10 +10,11 @@ alwaysApply: true
 **Never implement on first reply. Ever.**
 
 ## Required Planning Process:
-1. Use `todo_write` tool with `fetch_rule` calls interspersed throughout todos (mandatory for rule context refresh)
-2. Present implementation plan
-3. Wait for explicit user approval
-4. Only then implement
+1. **Call `get_timestamp()` to document planning session start time**
+2. Use `todo_write` tool with `fetch_rule` calls interspersed throughout todos (repeated every few todos)
+3. Present implementation plan with timestamp
+4. Wait for explicit user approval
+5. Only then implement
 
 ## Action Tags
 - 【STOP】 【CHOICE】 【VALIDATE】 【PLAN】

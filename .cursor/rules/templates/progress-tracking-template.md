@@ -56,10 +56,8 @@
 ### Design Decisions
 {{DESIGN_DECISIONS}}
 
-### Technical Artifacts
-- Proposals: {{PROPOSAL_LINKS}}
-- Plans: {{PLAN_LINKS}}  
-- Implementations: {{IMPLEMENTATION_LINKS}}
+### Technical Artifacts (excluding session files)
+{{TECHNICAL_ARTIFACTS}} 
 
 ### External References
 {{EXTERNAL_REFERENCES}}

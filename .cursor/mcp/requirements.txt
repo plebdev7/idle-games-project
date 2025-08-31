@@ -1,0 +1,3 @@
+# Shared requirements for all MCP servers
+mcp>=1.0.0
+
