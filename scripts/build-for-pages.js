@@ -182,4 +182,4 @@ for (const game of games) {
   console.log(`   https://plebdev7.github.io/idle-games-project/${game.outputPath}/`)
 }
 console.log('\n🚀 Ready to deploy to GitHub Pages!')
-console.log('   Run: npm run deploy')
+console.log('   Push to main branch - GitHub Actions will deploy automatically!')

@@ -20,7 +20,7 @@
     "test:game1": "npm run test:unit --workspace=games/game-1-basic",
     "lint": "npm run lint --workspaces --if-present",
     "format": "npm run format --workspaces --if-present",
-    "deploy": "npm run build:deploy && gh-pages -d dist",
+    "deploy": "echo 'Deployment handled automatically by GitHub Actions on push to main'",
     "preview": "npm run build:deploy && npx serve dist"
   },
   "keywords": [
@@ -34,9 +34,7 @@
   ],
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "gh-pages": "^6.1.0"
-  },
+  "devDependencies": {},
   "dependencies": {},
   "engines": {
     "node": ">=18.0.0",
