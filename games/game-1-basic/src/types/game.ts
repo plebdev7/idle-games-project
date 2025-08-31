@@ -16,7 +16,7 @@ export interface UpgradeDefinition {
   id: string
   name: string
   description: string
-  category: 'production' | 'automation' | 'efficiency'
+  category: 'clicking' | 'generators' | 'multipliers'
   baseCost: number
   costMultiplier: number
   effect: {

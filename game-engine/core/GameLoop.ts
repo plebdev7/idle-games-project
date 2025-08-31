@@ -12,7 +12,7 @@ export class GameLoop {
   private readonly GAME_LOGIC_INTERVAL = 1000 // 1 second
 
   private uiUpdateCallbacks: Array<(deltaTime: number) => void> = []
-  private gameLogicCallbacks: Array<() => void> = []
+  private gameLogicCallbacks: Array<(deltaTime: number) => void> = []
 
   constructor() {
     this.handleVisibilityChange = this.handleVisibilityChange.bind(this)
@@ -76,7 +76,7 @@ export class GameLoop {
   /**
    * Register callback for game logic updates (1fps)
    */
-  onGameLogic(callback: () => void): () => void {
+  onGameLogic(callback: (deltaTime: number) => void): () => void {
     this.gameLogicCallbacks.push(callback)
     
     // Return unsubscribe function
@@ -114,10 +114,10 @@ export class GameLoop {
     this.gameLogicIntervalId = setInterval(() => {
       if (!this.isRunning) return
 
-      // Execute all game logic callbacks
+      // Execute all game logic callbacks with fixed deltaTime
       this.gameLogicCallbacks.forEach(callback => {
         try {
-          callback()
+          callback(this.GAME_LOGIC_INTERVAL)
         } catch (error) {
           console.error('Game logic callback error:', error)
         }

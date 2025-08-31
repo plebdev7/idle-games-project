@@ -1,3 +1,12 @@
+@import "tailwindcss";
+
+/* Essential CSS Variables - Only truly necessary ones that don't duplicate Tailwind */
+:root {
+  /* Primary color for theme consistency - used in Tailwind config */
+  --color-primary: #0066cc;
+  --color-primary-dark: #0052a3;
+}
+
 /* CSS Reset and Base Styles */
 *,
 *::before,
@@ -9,13 +18,16 @@
 
 html {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #f8fafc;
-  color: #1a202c;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Focus management for accessibility */
@@ -31,57 +43,40 @@ body {
   border: 0;
 }
 
-.focusable:focus-visible {
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
   outline: 2px solid #0066cc;
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 0.5rem;
 }
 
-/* Mobile-first responsive design */
-.game-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .game-layout {
-    flex-direction: row;
-    gap: 2rem;
-    padding: 2rem;
-  }
-}
-
-/* Button styles */
-button {
-  cursor: pointer;
-  border: none;
-  border-radius: 6px;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  min-height: 44px;
-  min-width: 44px;
-}
-
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.btn-primary {
-  background-color: #0066cc;
+/* Skip to main content for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #0066cc;
   color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  z-index: 1060;
+  transition: top 0.15s ease-out;
 }
 
-.btn-primary:hover:not(:disabled) {
-  background-color: #0052a3;
+.skip-link:focus {
+  top: 6px;
 }
 
-.btn-primary:active {
-  transform: scale(0.98);
+/* Reduced motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
