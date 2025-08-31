@@ -3,7 +3,7 @@
  * Basic integration with shared game engine
  */
 import { ref, onMounted, onUnmounted } from 'vue'
-import { GameLoop } from '@game-engine/index'
+import { GameLoop } from '@idle-games/game-engine'
 
 export function useGameLoop() {
   const gameLoop = new GameLoop()

@@ -9,7 +9,7 @@ config.global.stubs = {
 }
 
 // Mock game engine for tests
-vi.mock('@game-engine/index', () => ({
+vi.mock('@idle-games/game-engine', () => ({
   GameLoop: vi.fn(() => ({
     start: vi.fn(),
     stop: vi.fn(),

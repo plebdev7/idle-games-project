@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "build:pages": "vue-tsc && vite build --base=/idle-games-project/game-1/",
     "preview": "vite preview",
     "test:unit": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
@@ -13,7 +14,8 @@
   },
   "dependencies": {
     "vue": "^3.4.0",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "@idle-games/game-engine": "1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

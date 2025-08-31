@@ -11,8 +11,7 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@game-engine/*": ["../../game-engine/*"]
+      "@/*": ["./src/*"]
     },
     "strict": true,
     "noImplicitAny": true,

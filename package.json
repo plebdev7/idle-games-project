@@ -3,21 +3,44 @@
   "version": "1.0.0",
   "description": "A collection of incremental/idle games built with Vue 3, TypeScript, and modern web technologies",
   "type": "module",
+  "workspaces": [
+    "game-engine",
+    "games/*"
+  ],
   "scripts": {
-    "dev": "echo 'Select a specific game to develop'",
-    "build": "echo 'Build script will be added per game'",
-    "test": "echo 'Tests will be added later'"
+    "dev": "echo 'Use dev:game1, dev:game2, etc. for specific games'",
+    "dev:game1": "npm run dev --workspace=games/game-1-basic",
+    "dev:game2": "npm run dev --workspace=games/game-2-advanced",
+    "dev:game3": "npm run dev --workspace=games/game-3-card-battler",
+    "build": "npm run build:deploy",
+    "build:all": "npm run build --workspaces --if-present",
+    "build:deploy": "node scripts/build-for-pages.js",
+    "test": "npm run test:all",
+    "test:all": "npm run test:unit --workspaces --if-present",
+    "test:game1": "npm run test:unit --workspace=games/game-1-basic",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "npm run format --workspaces --if-present",
+    "deploy": "npm run build:deploy && gh-pages -d dist",
+    "preview": "npm run build:deploy && npx serve dist"
   },
   "keywords": [
     "idle-game",
     "incremental-game",
     "vue",
     "typescript",
-    "vite"
+    "vite",
+    "monorepo",
+    "workspace"
   ],
   "author": "",
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
 }
 

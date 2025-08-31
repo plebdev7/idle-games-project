@@ -5,7 +5,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { useGameLoop } from '@/composables/useGameLoop'
 
 // Mock the game engine
-vi.mock('@game-engine/index', () => ({
+vi.mock('@idle-games/game-engine', () => ({
   GameLoop: vi.fn(() => ({
     start: vi.fn(),
     stop: vi.fn(),
